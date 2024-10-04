@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: '3.3.3', url: 'https://github.com/apache/hadoop.git'
+                git branch: 'branch-3.2.2', url: 'https://github.com/apache/hadoop.git'
             }
         }
 

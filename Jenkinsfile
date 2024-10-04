@@ -14,6 +14,14 @@ pipeline {
             }
         }
 
+        stage('Check JDK Version') {
+            steps {
+                sh '''
+                    java -version
+                '''
+            }
+        }
+        
         stage('Build') {
             steps {
                 sh '''

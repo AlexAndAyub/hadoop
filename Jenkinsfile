@@ -18,7 +18,7 @@ pipeline {
                     docker run --rm=true $DOCKER_INTERACTIVE_RUN \
                        -v "${PWD}/:/home/jenkins/hadoop" \
                        -w "/home/jenkins" \
-                       -v "${PWD}/.m2:/home/genkins/.m2" \
+                       -v "${PWD}/.m2:/home/jenkins/.m2" \
                        -u "1001" \
                        "hadoop-build-1001" \
                        mvn package -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true

@@ -16,12 +16,12 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm=true $DOCKER_INTERACTIVE_RUN \
-                       -v "${PWD}/:/home/jenkins/hadoop" \
-                       -w "/home/jenkins" \
-                       -v "${PWD}/.m2:/home/jenkins/.m2" \
-                       -u "1001" \
-                       "hadoop-build-1001" \
-                       mvn package -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
+                      -v "${PWD}:/home/${USER_NAME}/hadoop" \
+                      -w "/home/${USER_NAME}/hadoop" \
+                      -v "${HOME}/.m2:/home/${USER_NAME}/.m2" \
+                      -u "${USER_ID}" \
+                      "hadoop-build-${USER_ID}" \
+                      mvn package -Pdist -DskipTests -Dtar -Dmaven.javadoc.skip=true
                 '''
             }
         }

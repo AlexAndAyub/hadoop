@@ -26,26 +26,11 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh '''
-                    mvn test
-                '''
-            }
-        }
-
-        stage('Package') {
-            steps {
-                sh '''
-                    mvn package
-                '''
-            }
-        }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'hadoop-distr/target/hadoop-*.gz', allowEmptyArchive: true
             junit '**/target/surefire-reports/*.xml'
         }
 

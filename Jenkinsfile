@@ -31,7 +31,6 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'hadoop-dist/target/hadoop-*.gz', allowEmptyArchive: true
-            junit '**/target/surefire-reports/*.xml'
         }
 
         success {

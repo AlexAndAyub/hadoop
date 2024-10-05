@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm=true $DOCKER_INTERACTIVE_RUN \
-                       -v "${PWD}hadoop-${HADOOP_VER}/:/home/jenkins/hadoop${V_OPTS:-}" \
+                       -v "${PWD}/hadoop-${HADOOP_VER}/:/home/jenkins/hadoop${V_OPTS:-}" \
                        -w "/home/jenkins/hadoop" \
                        -v "${HOME}/.m2:/home/genkins/.m2${V_OPTS:-}" \
                        -u "1001" \

@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        HADOOP_VER = 3.2.2
+        HADOOP_VER = "3.2.2"
     }
 
     stages {
